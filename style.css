@@ -1,0 +1,20 @@
+#myCanvas{
+    background:grey;
+  }
+body>div{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.on >#eraser{
+    display: inline-block;
+}
+.on >#brush{
+    display: none;
+}
+.off >#eraser{
+    display: none;
+}
+.off >#brush{
+    display: inline-block;
+}
