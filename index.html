@@ -19,11 +19,27 @@
 <body>
  <canvas id=myCanvas width=300 height=300>
  </canvas>
- <div id="switch1" class="on">
-   <button id="eraser">橡皮擦</button>
-   <button id="brush">画笔</button>
+ <div id="switch" class="on">
+    <svg id=brush class="icon active" aria-hidden="true">
+        <use xlink:href="#icon-brush"></use>
+    </svg>
+    <svg id=eraser class="icon" aria-hidden="true">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
+    <svg id=download class="icon" aria-hidden="true">
+        <use xlink:href="#icon-download"></use>
+    </svg>
+    <svg id=clear class="icon" aria-hidden="true">
+        <use xlink:href="#icon-clear"></use>
+    </svg>
+    <OL id="colors">
+      <LI id="red" class="active"></LI>
+      <LI id="green"></LI>
+      <LI id="yellow"></LI>
+    </OL>
  </div>
 </body>
 
 <script src="./main.js"></script>
+<script src="//at.alicdn.com/t/font_1348451_gv7ah1dv7qv.js"></script>
 </html>

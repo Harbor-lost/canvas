@@ -4,6 +4,38 @@ autoSizeAdapt()
 var context = canvas.getContext('2d');  
 var eraser = document.getElementById('eraser');
 //用户操作
+red.onclick=function(){
+  context.fillStyle='red';
+  context.strokeStyle='red';
+  red.classList.add('active');
+  green.classList.remove('active');
+  yellow.classList.remove('active');
+}
+green.onclick=function(){
+  context.fillStyle='green';
+  context.strokeStyle='green';
+  green.classList.add('active');
+  red.classList.remove('active');
+  yellow.classList.remove('active');
+}
+yellow.onclick=function(){
+  context.fillStyle='yellow';
+  context.strokeStyle='yellow'
+  yellow.classList.add('active');
+  green.classList.remove('active');
+  red.classList.remove('active');
+}
+clear.onclick=function(){
+  context.clearRect(0, 0, canvas.width, canvas.height)
+}
+download.onclick=function(){
+  var url = canvas.toDataURL("img/png");
+  console.log(url)
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = '作品';
+  a.click();
+}
 Use(eraser.context);
 //函数
 function Use(){
@@ -11,12 +43,15 @@ function Use(){
   var eraserOn=false;
   eraser.onclick=function(){
   eraserOn=true;
-  switch1.className='off';
+  eraser.classList.add('active');
+  brush.classList.remove('active')
   }
   brush.onclick=function(){
   eraserOn=false;
-  switch1.className ='on';
+  brush.classList.add('active');
+  eraser.classList.remove('active')
   }
+
   if(document.body.ontouchstart!==undefined){
     canvas.ontouchstart=function(start){
      
@@ -30,7 +65,6 @@ function Use(){
         }
         else{
         lastPosition={"x":x,"y":y};
-        drawCircle(x,y,1); 
         console.log('1')
         }
       }
@@ -63,7 +97,6 @@ function Use(){
         }
         else{
         lastPosition={"x":x,"y":y};
-        drawCircle(x,y,1); 
         }
       }
     }
@@ -95,7 +128,7 @@ function drawCircle(x,y,radius){
 }
 function drawLine(x1,y1,x2,y2){
   context.beginPath();
-  context.lineWidth=4;
+  context.lineWidth=2;
   context.moveTo(x1,y1);
   context.lineTo(x2,y2);
   context.stroke();
